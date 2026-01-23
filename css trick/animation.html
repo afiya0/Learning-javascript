@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    .con {
+      margin-top: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    .box {
+      transform-style: preserve-3d;
+      transform: perspective(1000px);
+      height: 200px;
+      width: 200px;
+      flex: 0 0 6%;
+    }
+    img {
+      object-fit: cover;
+      filter: brightness(0);
+      transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    img:hover {
+      filter: brightness(0.9);
+      transform: translateZ(200px);
+    }
+    img:hover + * {
+      filter: brightness(0.6);
+      transform: translateZ(150px) rotateY(20deg);
+    }
+    img:hover + * + * {
+      filter: brightness(0.4);
+      transform: translateZ(70px) rotateY(20deg);
+    }
+    img:has(+ *:hover) {
+      filter: brightness(0.2);
+      transform: translateZ(30px) rotateY(-50deg);
+    }
+       img:has(+ * + * + *:hover) {
+      filter: brightness(0.2);
+      transform: translateZ(30px) rotateY(-20deg);
+    }   img:has(+ *:hover) {
+      filter: brightness(0.2);
+      transform: translateZ(30px) rotateY(-90deg);
+    }   img:has(+ *:hover) {
+      filter: brightness(0.2);
+      transform: translateZ(30px) rotateY(20deg);
+    }
+  </style>
+  <body>
+    <div class="con">
+      <img
+        src="https://i.pinimg.com/736x/80/24/6b/80246b837aebfef342f2d7b4d6e8f71c.jpg"
+        class="box"
+      />
+      <img
+        src="https://i.pinimg.com/736x/ac/77/29/ac7729b8c320dcc8448f9e368b137706.jpg"
+        class="box"
+      />
+      <img
+        src="https://i.pinimg.com/736x/70/65/10/706510b39c839d7685226b6589dafd06.jpg"
+        class="box"
+      />
+      <img
+        src="https://i.pinimg.com/736x/80/24/6b/80246b837aebfef342f2d7b4d6e8f71c.jpg"
+        class="box"
+      />
+      <img
+        src="https://i.pinimg.com/736x/ac/77/29/ac7729b8c320dcc8448f9e368b137706.jpg"
+        class="box"
+      />
+      <img
+        src="https://i.pinimg.com/736x/70/65/10/706510b39c839d7685226b6589dafd06.jpg"
+        class="box"
+      />
+      <img
+        src="https://i.pinimg.com/736x/80/24/6b/80246b837aebfef342f2d7b4d6e8f71c.jpg"
+        class="box"
+      />
+      <img
+        src="https://i.pinimg.com/736x/ac/77/29/ac7729b8c320dcc8448f9e368b137706.jpg"
+        class="box"
+      />
+      <img
+        src="https://i.pinimg.com/736x/70/65/10/706510b39c839d7685226b6589dafd06.jpg"
+        class="box"
+      />
+      <img
+        src="https://i.pinimg.com/736x/80/24/6b/80246b837aebfef342f2d7b4d6e8f71c.jpg"
+        class="box"
+      />
+    </div>
+  </body>
+</html>
