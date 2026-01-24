@@ -44,3 +44,16 @@ let reduce =marks.reduce(function(acc,val){
     return acc+val;
 });
 console.log(reduce);
+
+
+// Destructuring 
+let array= [22,33,554,21,134,76,43,3,1];
+let [a,b,,,,d]=array;
+console.log(d);
+
+
+// Spread opeartor
+
+let newArr=[...array];
+console.log(newArr+22);
+console.log(array);
