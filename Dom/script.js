@@ -1,35 +1,99 @@
+// ❌ React wali line hata do
+// const { createElement } = require("react");
+
+
+// ---------- ABOUT SECTION ----------
+let about = document.querySelector("#About\\ me p");
+if (about) {
+  about.innerHTML = "<em><b>I AM AFIYA SIDDIQUI</b></em>";
+}
+
+
+// ---------- NAME CHANGE ----------
 let name = document.querySelector(".name em u");
-name.innerText = "afiya";
+if (name) {
+  name.innerText = "afiya";
+}
 
+
+// ---------- BUTTON TEXT ----------
 let btn = document.querySelector(".btn");
-btn.innerText = "Please Submit the form";
-
-let link = document.querySelectorAll("li,a")[11];
-link.innerText = "Google";
-link.setAttribute("href", "https://www.google.com");
+if (btn) {
+  btn.innerText = "Please Submit the form";
+}
 
 
+// ---------- GOOGLE LINK (SAFE WAY) ----------
+let links = document.querySelectorAll("a");
+let link = links[links.length - 1]; // last link
+if (link) {
+  link.innerText = "Google";
+  link.setAttribute("href", "https://www.google.com");
+}
 
-// Attribute Mainupulation
+
+// ---------- PRINT ALL LI ----------
+let list = document.querySelectorAll("li");
+list.forEach(val => console.log(val.innerText));
+
+
+// ---------- TEXTAREA ATTRIBUTES ----------
 let SetAT = document.querySelector("textarea");
+if (SetAT) {
+  SetAT.style.color = "red";
+  SetAT.style.backgroundColor = "pink";
+  SetAT.setAttribute("placeholder", "Write your Message Here");
 
-SetAT.style.cssText = "color:red; background-color:pink"
-SetAT.setAttribute("placeholder", "Write your Message Here");
+  let id = SetAT.getAttribute("id");
+  console.log(id);
 
-let id = SetAT.getAttribute("id");
-console.log(id);
-
-SetAT.removeAttribute("disabled");
+  SetAT.removeAttribute("disabled");
+}
 
 
-// Create Element
+// ---------- CREATE ELEMENTS ----------
 let proj = document.querySelector(".project-des");
-let h1 = document.createElement("h1");
-let p = document.createElement("p");
-let inp=document.createElement("input");
-inp.setAttribute("placeholder","Write Somrthing");
-p.innerText = "loremThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc"
-h1.innerText = "Project";
-h1.innerHTML="<i>Hello</i>";
-proj.prepend(h1,p,inp);
 
+if (proj) {
+  let h1 = document.createElement("h1");
+  let p = document.createElement("p");
+  let inp = document.createElement("input");
+  let btnn = document.createElement("button");
+
+  h1.innerHTML = "<i>Hello</i>";
+  p.innerText =
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, rerum.";
+
+  inp.setAttribute("placeholder", "Write Something");
+
+  btnn.innerText = "Hello from JS";
+  btnn.style.color = "red";
+
+  proj.prepend(h1, p, inp, btnn);
+}
+
+
+// ---------- FUNCTION ----------
+function alu() {
+  if (document.getElementById("list")) return;
+
+  let orderList = document.createElement("ol");
+  orderList.id = "list";
+
+  let listItem = ["hello", "Afiya", "21", "22", "jj","hello"];
+    
+  for (let item of listItem) {
+    let li = document.createElement("li");
+   
+    li.textContent = item;
+
+    orderList.append(li);
+  }
+
+  document.body.append(orderList);
+   document.querySelectorAll("#list li:nth-child(2n)").forEach(li=>{
+        li.style.color="red";
+    })
+}
+
+alu();
