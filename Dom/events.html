@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <script src="event.js"></script>
+    <script>
+        let inp= document.querySelector("input");
+inp.addEventListener("input",function(d){
+    if(d.target.value !== null){
+        console.log(d.target.value);
+    }
+});
+
+
+    </script>
+</body>
+</html>
