@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      height: 100vh;
+      width: 100%;
+      background-color: black;
+      color: antiquewhite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+    }
+    #inp {
+      display: none;
+    }
+    .container {
+      border-radius: 3px;
+      height: 100px;
+      width: 200px;
+      background-color: rgb(80, 109, 163);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      font-family: poppins;
+      color: rgba(0, 0, 0, 0.87);
+    }
+  </style>
+  <body>
+    <input type="file" accept="" id="inp" />
+    <div class="container">Choose file</div>
+    <script>
+      let file = document.querySelector("#inp");
+      let btn = document.querySelector(".container");
+      btn.addEventListener("click", function () {
+        file.click();
+      });
+      file.addEventListener("change", function (d) {
+        const f=d.target.files[0].name;
+        if(f){
+            btn.textContent=f;
+        }
+      });
+    </script>
+  </body>
+</html>

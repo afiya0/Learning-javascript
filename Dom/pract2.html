@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .container {
+      height: 100vh;
+      width: 100%;
+      background-color: black;
+      color: antiquewhite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+    }
+    h1 {
+      font-family: "poppins";
+      font-size: 10rem;
+      font-weight: 300;
+      color: grey;
+    }
+  </style>
+  <body>
+    <div class="container"><h1 class="h">a</h1></div>
+    <script>
+      let h = document.querySelector("h1");
+      window.addEventListener("keydown", function (d) {
+        if (d.key == " ") {
+          h.textContent = "stop afiya";
+        } else {
+          h.textContent = `${d.key}`;
+        }
+        console.log(d.key);
+      });
+    </script>
+  </body>
+</html>

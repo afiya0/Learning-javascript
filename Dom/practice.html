@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="head">devices</h1>
+    <select >
+        <option selected disabled>Select a device</option>
+        <option value="laptop">Laptop</option>
+        <option value="desktop">Desktop</option>
+        <option value="tablet">Tablet</option>
+        <option value="phone">Phone</option>
+    </select>
+<script>
+let heading =document.querySelector("#head");
+let sel=document.querySelector("select");
+sel.addEventListener("mousemove",function(e){
+    heading.style.fontFamily="poppins";
+    heading.style.backgroundColor="red";
+})
+sel.addEventListener("change",function(d){
+    heading.textContent=`${d.target.value} device selected`;
+    console.log(d.target.value);
+})
+</script>
+</body>
+</html>

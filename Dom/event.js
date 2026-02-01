@@ -9,18 +9,23 @@ bevent.forEach(function (em) {
     em.addEventListener("mouseover", function () {
         em.style.color = "purple";
     });
-});
 
-let pock = document.querySelectorAll("p");
-
-pock.forEach(function (p) {
-    p.addEventListener("click", function () {
-        p.style.fontFamily = "poppins";
+    em.addEventListener("mouseout", function () {
+        em.style.backgroundColor = "beige";
     });
 });
-pock.forEach(function (p) {
-    p.removeEventListener("click", function () {
-    });
+let pocke = document.querySelectorAll("li");
+
+function fname(e) { 
+  e.target.style.color = "red";
+  e.target.style.backgroundColor="black";
+}
+
+pocke.forEach(p => {
+  p.addEventListener("mouseover", fname);
 });
 
+// pocke.forEach(p=>{
+//     p.removeEventListener("mouseover",fname);
+// })
 
