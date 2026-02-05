@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Count</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      background-color: rgba(0, 0, 0, 0.596);
+    }
+    input {
+      color: rgb(255, 255, 255);
+      background-color: black;
+      border: none;
+      font-size: 18px;
+      padding: 20px;
+      font-family: poppins;
+    }
+    h1 {
+      font-family: poppins;
+      font-size: 70px;
+      color: azure;
+    }
+  </style>
+  <body>
+    <input type="text" name="" id="" />
+    <h1>Characters</h1>
+
+    <script>
+      let inp = document.querySelector("input");
+      let h1 = document.querySelector("h1");
+
+      inp.addEventListener("input", function () {
+        if (inp.value.length >= 20) {
+          inp.disabled = true;
+        }
+        h1.innerText = `Character left, ${20 - inp.value.length}   `;
+      });
+    </script>
+  </body>
+</html>

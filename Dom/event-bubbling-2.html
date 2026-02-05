@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .container {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn {
+      margin: 50px;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      font-family: poppins;
+      cursor: pointer;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+  <body>
+    <div class="container"><button class="btn">Click Me</button></div>
+    <script>
+      let button = document.querySelector("button");
+
+      let container = document.querySelector(".container");
+      container.addEventListener("click", function (e) {
+        if (e.target.classList.contains("btn")) {
+          alert("button Clicked");
+          button.classList.toggle("btn");
+        }
+      });
+    </script>
+  </body>
+</html>

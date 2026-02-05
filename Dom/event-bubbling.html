@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    nav {
+      background-color: teal;
+      padding: 20px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li {
+      color: rgb(110, 3, 3);
+      text-decoration: none;
+      font-size: 1.2em;
+      font-family: poppins;
+    }
+
+    .btn {
+      margin: 50px;
+      padding: 10px 20px;
+      font-size: 1.2em;
+      font-family: poppins;
+      cursor: pointer;
+    }
+    .mode {
+      background-color: black;
+      color: white;
+    }
+  </style>
+  <body>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Events</li>
+        <li>Resources</li>
+        <li>Contact</li>
+      </ul>
+    </nav>
+    <button class="btn">Click Me</button>
+    <script>
+      let button = document.querySelector(".btn");
+      button.addEventListener("click", function (e) {
+        document.body.classList.toggle("mode");
+      });
+      let nav = document.querySelector("nav ul");
+      nav.addEventListener("click", function (e) {
+        // alert("you clicked on nav");
+        e.target.style.textDecoration = "line-through";
+      });
+    </script>
+  </body>
+</html>

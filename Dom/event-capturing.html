@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+    .a {
+      height: 500px;
+      width: 400px;
+      background-color: rgb(180, 135, 80);
+    }
+    .b {
+      height: 400px;
+      width: 300px;
+      background-color: rgb(150, 91, 20);
+    }
+    .c {
+      height: 300px;
+      width: 200px;
+      background-color: rgb(255, 145, 10);
+    }
+    button {
+      height: 50px;
+      width: 100px;
+      background-color: bisque;
+    }
+  </style>
+  <body>
+    <div class="a">
+      <div class="b">
+        <div class="c">
+          <button>submited</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      let a = document.querySelector(".a");
+      let b = document.querySelector(".b");
+      let c = document.querySelector(".c");
+      let btn = document.querySelector("button");
+
+      a.addEventListener(
+        "click",
+        function (e) {
+          e.target;
+          console.log("a clicked");
+        },
+        true,
+      );
+      b.addEventListener(
+        "click",
+        function (e) {
+          e.target;
+          console.log("b clicked");
+        },
+        true,
+      );
+      c.addEventListener("click", function (e) {
+        e.target;
+        console.log(" awwww c clicked");
+      });
+      btn.addEventListener(
+        "click",
+        function (e) {
+          e.target;
+          console.log("Button clicked");
+        },
+        true,
+      );
+    </script>
+  </body>
+</html>
