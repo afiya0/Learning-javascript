@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Hide Alert with setInterval</title>
+<style>
+  .alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #f44336; /* red */
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 1000;
+  }
+
+  .alert.hide {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+</style>
+</head>
+<body>
+
+<div class="alert" id="alertBanner">
+  This alert will auto-hide repeatedly!
+</div>
+
+<script>
+const alert = document.getElementById('alertBanner');
+
+// Show alert initially
+alert.classList.remove('hide');
+
+// Every 5 seconds, show the alert and hide it after 2 seconds
+setInterval(() => {
+  alert.classList.remove('hide'); // show alert
+  setTimeout(() => {
+    alert.classList.add('hide'); // hide alert
+  }, 2000); // hide after 2 seconds
+}, 5000); // repeat every 5 seconds
+</script>
+
+</body>
+</html>

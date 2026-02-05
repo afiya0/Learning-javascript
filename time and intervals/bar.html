@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Download Progress</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        background: radial-gradient(circle at top, #222, #000);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card {
+        width: 280px;
+        padding: 20px;
+        background: #111;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        text-align: center;
+        color: #ccc;
+      }
+
+      .card h4 {
+        font-size: 14px;
+        margin-bottom: 12px;
+        font-weight: 500;
+      }
+
+      .progress-container {
+        width: 100%;
+        height: 6px;
+        background: #222;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 10px;
+      }
+
+      .progress-bar {
+        height: 100%;
+        width: 0;
+        background: linear-gradient(90deg, #fff, #aaa);
+        animation: download 3s ease forwards;
+        border-radius: 10px;
+      }
+
+      .percent {
+        font-size: 12px;
+        color: #888;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <h4 class="d">Downloading...</h4>
+
+      <div class="progress-container">
+        <div class="progress-bar"></div>
+      </div>
+
+      <div class="percent">0%</div>
+    </div>
+
+    <script>
+      let progress = document.querySelector(".progress-bar");
+      let percent = document.querySelector(".percent");
+
+      let count = 0;
+    let i=  setInterval(() => {
+        if (count < 100) {
+          count++;
+          progress.style.width = `${count}%`;
+          percent.textContent = `${count}%`;
+        } else {
+          document.querySelector(".d").textContent =
+            "downloaded";
+            clearInterval(i);
+        }
+      }, 1000 / 100);
+    </script>
+  </body>
+</html>

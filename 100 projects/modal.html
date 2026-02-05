@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5 Laws of Human Nature</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: poppins;
+        background-color: rgba(0, 0, 0, 0.808);
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      h1 {
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        margin-bottom: 30px;
+      }
+
+      .laws {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .law {
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        width: 400px;
+        border-radius: 10px;
+        position: relative;
+        cursor: pointer;
+        transition: 0.3s;
+        flex: 1 1 30%;
+      }
+
+      .law:hover {
+        background: rgba(0, 0, 0, 0.9);
+      }
+
+      .law h2 {
+        margin-bottom: 10px;
+      }
+
+      .description {
+        opacity: 1;
+        overflow: hidden;
+        transition: all 0.5s ease;
+      }
+
+      /* Cut/Close button */
+      .cut-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 20px;
+        cursor: pointer;
+        color: #fff;
+      }
+
+      .cut-btn:hover {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>5 Laws of Human Nature</h1>
+
+    <div class="laws">
+      <div class="law">
+        <span class="cut-btn">&times;</span>
+        <h2>Law 1: Master Your Emotions</h2>
+        <p class="description">
+          Recognize your emotions and avoid letting them control your decisions.
+          Emotional intelligence is the key to influence and understanding.
+        </p>
+      </div>
+
+
+
+    <script>
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const visibleLaws = document.querySelectorAll('.law');
+      visibleLaws.forEach(law => {
+        if (law.style.display !== 'none') {
+          law.style.display = 'none';
+        }
+      });
+    }
+  });
+    </script>
+  </body>
+</html>

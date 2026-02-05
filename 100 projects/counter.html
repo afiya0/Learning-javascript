@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glassmorphism Counter</title>
+    <style>
+      /* Body styling */
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #1a1a1a; /* dark background */
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* Glassmorphism container */
+      .counter-container {
+        background: rgba(255, 255, 255, 0.1); /* translucent cream-ish */
+        border-radius: 20px;
+        padding: 40px 60px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Counter number */
+      #count {
+        font-size: 5rem;
+        color: #fff8e7; /* cream */
+        margin-bottom: 30px;
+      }
+
+      /* Buttons container */
+      .buttons {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+      }
+
+      /* Buttons */
+      button {
+        padding: 15px 25px;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        background: rgba(255, 248, 231, 0.2); /* semi-transparent cream */
+        color: #fff8e7;
+        transition: 0.3s;
+        backdrop-filter: blur(5px);
+      }
+
+      button:hover {
+        background: rgba(255, 248, 231, 0.4);
+        transform: scale(1.05);
+      }
+      .counter-container h1 {
+        font-size: 3rem;
+        color: whitesmoke;
+        font-family: Bigerside Expanded;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="counter-container">
+      <h1>counter</h1>
+      <div id="count">0</div>
+      <div class="buttons">
+        <button id="decrement">-</button>
+        <button id="reset">Reset</button>
+        <button id="increment">+</button>
+      </div>
+    </div>
+
+    <script>
+      let dec = document.querySelector("#decrement");
+      let reset = document.querySelector("#reset");
+      let inc = document.querySelector("#increment");
+      let countEl = document.querySelector("#count");
+        let count=0;
+
+      inc.addEventListener("click",function(d){
+        count++;
+        countEl.textContent=`${count}`;
+        
+      });
+      dec.addEventListener("click",function(){
+        count--;
+        countEl.textContent=`${count}`;
+      });
+      reset.addEventListener("click",function(){
+        count=0;
+        countEl.textContent=`${count}`;
+      })
+    </script>
+  </body>
+</html>
