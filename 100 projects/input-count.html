@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Character Counter</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #0f0f0f;
+      }
+
+      .card {
+        background: #1c1c1c;
+        width: 350px;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      }
+
+      .card h2 {
+        color: #fff;
+        margin-bottom: 12px;
+        font-size: 20px;
+      }
+
+      .card textarea {
+        field-sizing: content;
+        width: 100%;
+        min-height: 2lh; 
+        max-height: 10lh;
+        padding: 12px;
+        resize: none;
+        border-radius: 8px;
+        border: 1px solid #333;
+        background: #111;
+        color: #fff;
+        font-size: 25px;
+        outline: none;
+        font-family: poppins;
+      }
+
+      .card textarea:focus {
+        border-color: #6a5af9;
+      }
+
+      .counter {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        color: #aaa;
+        font-size: 14px;
+      }
+
+      .counter span {
+        color: #6a5af9;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Message</h2>
+      <textarea placeholder="Type something..."></textarea>
+      <div class="counter">
+        <p>Characters: <span class="span">0</span></p>
+        <p>Limit: <span class="limit">200</span></p>
+      </div>
+    </div>
+
+    <script>
+      let inp = document.querySelector("textarea");
+      let counter = document.querySelector(".limit");
+      let span = document.querySelector("span");
+      let max = 200;
+      inp.addEventListener("input", function (e) {
+        const text = e.target.value.length;
+        const remain = max - text;
+
+        span.textContent = text;
+
+        if (remain >= 0) {
+          counter.textContent = `${remain} : remain`;
+          counter.style.color = "#6a5af9";
+          inp.disable = true;
+        } else {
+          counter.textContent = "Limit exceeded";
+          counter.style.color = "red";
+        }
+      });
+    </script>
+  </body>
+</html>

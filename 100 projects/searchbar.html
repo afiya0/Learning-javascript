@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Search Bar</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        padding: 50px;
+      }
+
+      .search-container {
+        width: 300px;
+        background: #fff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .search-container input {
+        width: 90%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+
+      .search-container input:focus {
+        border-color: #222;
+      }
+
+      .results {
+        margin: 10px;
+        list-style: none;
+        padding: 0;
+        max-height: 150px;
+        overflow-y: auto;
+      }
+
+      .results li {
+        padding: 8px 10px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .results li:hover {
+        background: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="search-container">
+      <input type="text" id="search" placeholder="Search..." />
+      <ul class="results" id="results">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Cherry</li>
+        <li>Date</li>
+        <li>Grape</li>
+        <li>Mango</li>
+        <li>Orange</li>
+        <li>Pear</li>
+      </ul>
+    </div>
+
+    <script></script>
+  </body>
+</html>

@@ -27,8 +27,14 @@
       // 3. Delete username
       deleteBtn.addEventListener("click", () => {
         localStorage.removeItem("name");
-
       });
+
+      localStorage.setItem(
+        "city",
+        JSON.stringify(["pakistan", "hyderabad", "lliaqt"]),
+      );
+      let t = JSON.parse(localStorage.getItem("city"));
+      console.log(t);
     </script>
   </body>
 </html>

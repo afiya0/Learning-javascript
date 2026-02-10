@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change Text on Button Click</title>
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
+
+    .container {
+      text-align: center;
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .text {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #222;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #444;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="text" id="displayText">Hello World!</div>
+    <button class="btn" id="changeBtn">Change Text</button>
+  </div>
+
+
+  <script>
+    const btn=document.querySelector(".btn");
+    const text =document.querySelector(".text");
+
+    btn.addEventListener("click",()=>{
+        text.textContent="awwwww my little girl";
+    })
+  </script>
+</body>
+</html>

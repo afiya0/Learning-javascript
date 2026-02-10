@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      cursor: none; /* Hide default cursor */
+    }
+
+    .custom-cursor {
+      width: 30px;
+      height: 30px;
+      background-color: #ff4500;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none; /* Allows clicking elements underneath */
+      z-index: 9999;
+      transform: translate(-50%, -50%); /* Center the cursor on mouse */
+      transition: transform 0.1s ease-out; /* Smooth movement */
+    }
+
+    /* Example interaction */
+    h1:hover {
+      color: #ff4500;
+    }
+  </style>
+  <body>
+    <!-- The custom cursor div -->
+    <div class="custom-cursor"></div>
+
+    <!-- Example content to interact with -->
+    <div class="content">
+      <h1>Hover over me</h1>
+    </div>
+
+    <script>
+      const cursor = document.querySelector(".custom-cursor");
+      document.addEventListener("mousemove", function (e) {
+        const x = e.clientX;
+        const y = e.clientY;
+        console.log(` Mouse tracker ${x} and ${y}`);
+        cursor.style.left = x + "px";
+        cursor.style.top = y + "px";
+      });
+    </script>
+  </body>
+</html>

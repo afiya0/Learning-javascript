@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <title>LocalStorage Practice</title>
+  </head>
+  <body>
+    <button id="save">Save Username</button>
+    <button id="read">Read Username</button>
+    <button id="delete">Delete Username</button>
+
+    <script>
+      const saveBtn = document.getElementById("save");
+      const readBtn = document.getElementById("read");
+      const deleteBtn = document.getElementById("delete");
+
+    saveBtn.addEventListener("click",()=>{
+        sessionStorage.setItem("name","afiya");
+    });
+      deleteBtn.addEventListener("click",()=>{
+        sessionStorage.removeItem("name","afiya");
+    });
+      readBtn.addEventListener("click",()=>{
+        sessionStorage.getItem("name","afiya");
+    });
+    
+    </script>
+  </body>
+</html>
