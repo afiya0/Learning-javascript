@@ -4,12 +4,12 @@
   box-sizing: border-box;
 }
 @font-face {
-    font-family:"Oswald";
-    src: url(font/Oswald-Light.ttf);
+  font-family: "Oswald";
+  src: url(font/Oswald-Light.ttf);
 }
 @font-face {
-    font-family: "Raghita";
-    src: url(font/Ragitha-nAxr1.otf);
+  font-family: "Raghita";
+  src: url(font/Ragitha-nAxr1.otf);
 }
 
 :root {
@@ -34,26 +34,36 @@ body.light {
   color: var(--body-text-light);
 }
 
-.header{
+.header {
   min-height: 10vh;
-  background-color:var(--primary-color);
+  background-color: var(--primary-color);
   display: flex;
   padding: 0px var(--padding);
   justify-content: space-between;
 }
-.header img{
+.header img {
   height: 80px;
   object-fit: cover;
   margin: var(--margin);
 }
-.header h1{
+.header h1 {
   font-family: Raghita;
   color: var(--body-text-light);
-  font-size: clamp(2em,5vw,7em);
-  
+  font-size: clamp(2em, 3vw, 5em);
 }
-.header h2{
-    font-family: oswald;
+.header h2 {
+  text-align: center;
+  font-family: Raghita;
+  color: var(--accent-color);
+  font-size: clamp(1em, 3vw, 3em);
+}
+.header i {
+  margin-top: 20px;
   color: var(--body-text-light);
-  font-size: clamp(1em,3vw,3em);
+  font-size: clamp(4em, 3vw, 7em);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.header i:hover {
+  color: var(--accent-color);
 }

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple To-Do List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #2b2b2b;
+      color: white;
+    }
+
+    .todo-container {
+      margin-top: 160px;
+      width: 350px;
+      background: #141414;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(1, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #fff7f7;
+    }
+
+    .input-section {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      color: #ffffff;
+      background-color: black;
+    }
+
+    button {
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      background: #1a3d1b;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #667267;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li {
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      background: #000000;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    ul li button {
+      padding: 5px 10px;
+      background: #e53935;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    ul li button:hover {
+      background: #d32f2f;
+    }
+  </style>
+  <body>
+    <div class="todo-container">
+      <h1>My To-Do List</h1>
+
+      <div class="input-section">
+        <input type="text" id="todoInput" placeholder="Add a new task..." />
+        <button id="addBtn">Add</button>
+      </div>
+
+      <ul id="todoList">
+        <!-- Tasks will appear here -->
+      </ul>
+    </div>
+
+    <script>
+      // Select elements
+      let input = document.querySelector("#todoInput");
+      let addBtn = document.querySelector("#addBtn");
+      let todoList = document.querySelector("#todoList");
+
+      // Load tasks from localStorage
+      let saved = localStorage.getItem("todoList");
+      let tasks = saved ? JSON.parse(saved) : [];
+
+      // Helper function to add task to DOM
+      function addTaskToDOM(taskText) {
+        let li = document.createElement("li");
+        li.textContent = taskText;
+
+        let delBtn = document.createElement("button");
+        delBtn.textContent = "Delete";
+
+        delBtn.addEventListener("click", function () {
+          li.remove();
+
+          // Remove from tasks array and update localStorage
+          tasks = tasks.filter((t) => t !== taskText);
+          localStorage.setItem("todoList", JSON.stringify(tasks));
+        });
+
+        li.appendChild(delBtn);
+        todoList.appendChild(li);
+      }
+
+      // Render saved tasks on page load
+      tasks.forEach((task) => addTaskToDOM(task));
+
+      // Add new task
+      addBtn.addEventListener("click", function () {
+        let task = input.value.trim();
+        if (task === "") return;
+
+        tasks.push(task); // Add to array
+        localStorage.setItem("todoList", JSON.stringify(tasks)); // Save
+
+        addTaskToDOM(task); // Add to DOM
+        input.value = ""; // Clear input
+      });
+    </script>
+  </body>
+</html>

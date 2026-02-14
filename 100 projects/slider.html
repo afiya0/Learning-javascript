@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Auto Image Slider</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #f0f0f0;
+      }
+
+      .slider {
+        width: 600px;
+        height: 350px;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        position: relative;
+      }
+
+      .slides {
+        display: flex;
+        width: 200%;
+        height: 100%;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .slides img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Optional: navigation dots */
+      .dots {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.6);
+        cursor: pointer;
+      }
+
+      .dot.active {
+        background: rgba(255, 255, 255, 1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider">
+      <div class="slides">
+        <img src="https://picsum.photos/id/1015/600/350" alt="Slide 1" />
+        <img src="https://picsum.photos/id/1016/600/350" alt="Slide 2" />
+        <img src="https://picsum.photos/id/1018/600/350" alt="Slide 3" />
+      </div>
+
+      <div class="dots">
+        <div class="dot active"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+
+    <script>
+      let slides = document.querySelector(".slides");
+      let dot = document.querySelectorAll(".dot");
+      let slider = document.querySelectorAll(".slider");
+
+      let currentIndex = 0;
+
+      // Click dots
+      dot.forEach((d, i) => {
+        d.addEventListener("click", () => {
+          currentIndex = i;
+          showSlide();
+          updateDots();
+        });
+      });
+
+      function showSlide() {
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+
+      function updateDots() {
+        dot.forEach((d, i) => {
+          d.classList.toggle("active", i === currentIndex);
+        });
+      }
+
+      // Auto slide
+      setInterval(() => {
+        currentIndex++;
+        if (currentIndex >= slides.children.length) currentIndex = 0;
+        showSlide();
+        updateDots();
+      }, 3000);
+    </script>
+  </body>
+</html>

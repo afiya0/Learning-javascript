@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Keyboard Key Detector</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1f1f1f, #2c2c2c);
+  color: #fff;
+}
+
+.container {
+  text-align: center;
+  padding: 40px;
+  border-radius: 15px;
+  background: #111;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+.instruction {
+  margin-bottom: 30px;
+  opacity: 0.7;
+}
+
+.key-box {
+  width: auto;
+  height: 150px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background: #222;
+  border: 2px solid #444;
+  font-size: 50px;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.key-box:hover {
+  border-color: #4caf50;
+}
+
+#keyDisplay {
+  letter-spacing: 2px;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Keyboard Key Detector</h1>
+    <p class="instruction">Press any key on your keyboard</p>
+
+    <div class="key-box">
+      <span id="keyDisplay">?</span>
+    </div>
+  </div>
+
+
+
+  <script>
+    let cont=document.querySelector(".container");
+    let keyDisplay=document.querySelector("#keyDisplay");
+
+
+    document.addEventListener("keydown",function(e){
+        keyDisplay.textContent=e.key;
+    })
+  </script>
+</body>
+</html>

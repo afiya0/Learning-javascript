@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Total Click Counter</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1e1e1e, #2c2c2c);
+            color: #fff;
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            border-radius: 15px;
+            background: #111;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            letter-spacing: 1px;
+        }
+
+        .counter-box {
+            margin: 20px 0;
+        }
+
+        #clickCount {
+            font-size: 60px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .counter-box p {
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        .dummy-btn {
+            margin-top: 20px;
+            padding: 10px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #4caf50;
+            color: #fff;
+            transition: 0.3s ease;
+        }
+
+        .dummy-btn:hover {
+            background: #43a047;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Total Page Clicks</h1>
+        <div class="counter-box">
+            <span id="clickCount">0</span>
+            <p>Clicks</p>
+        </div>
+
+        <button class="dummy-btn">Click Me</button>
+    </div>
+
+    <script>
+        let click = document.querySelector("body");
+        let count = 0;
+        let text = document.querySelector("#clickCount");
+
+        let save = localStorage.getItem("clickCount");
+        if (save !== null) {
+            count = Number(save);
+            text.textContent = count;
+        }
+        click.addEventListener("click", function () {
+            count++;
+            text.textContent = count;
+
+            localStorage.setItem("clickCount", count);
+
+        });
+    </script>
+</body>
+
+</html>

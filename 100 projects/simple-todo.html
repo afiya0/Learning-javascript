@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple To-Do List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f5f5f5;
+    }
+
+    .todo-container {
+      width: 350px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .input-section {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 10px 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      background: #4caf50;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #43a047;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li {
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      background: #f0f0f0;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    ul li button {
+      padding: 5px 10px;
+      background: #e53935;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    ul li button:hover {
+      background: #d32f2f;
+    }
+  </style>
+  <body>
+    <div class="todo-container">
+      <h1>My To-Do List</h1>
+
+      <div class="input-section">
+        <input type="text" id="todoInput" placeholder="Add a new task..." />
+        <button id="addBtn">Add</button>
+      </div>
+
+      <ul id="todoList">
+        <!-- Tasks will appear here -->
+      </ul>
+    </div>
+
+    <script>
+      // select elemts
+      let input = document.querySelector("#todoInput");
+      let addBtn = document.querySelector("#addBtn");
+      let todoList = document.querySelector("#todoList");
+
+   
+
+      addBtn.addEventListener("click", function () {
+        if (input.value.trim() === "") return; // ignore empty input
+
+        // 1. Create li element
+        let li = document.createElement("li");
+
+        // 2. Add task text
+        li.textContent = input.value;
+
+        // 3. Create delete button
+        let delBtn = document.createElement("button");
+        delBtn.textContent = "Delete";
+
+        // 4. When delete clicked → remove li
+        delBtn.addEventListener("click", function () {
+          li.remove();
+        });
+
+        // 5. Append delete button to li
+        li.appendChild(delBtn);
+
+        // 6. Append li to list
+        todoList.appendChild(li);
+
+        // 7. Clear input
+        input.value = "";
+      });
+
+    </script>
+  </body>
+</html>
