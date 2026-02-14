@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Horizontal Logo Scroller</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #f5f5f5;
+        font-family: Arial, sans-serif;
+      }
+
+      .logo-container {
+        width: 80%;
+        overflow: hidden;
+        border-radius: 10px;
+        border: 2px solid #ddd;
+        background: #fff;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .logo-track {
+        display: flex;
+        gap: 30px;
+        padding: 20px;
+        /* optional: for CSS animation */
+        /* animation: scroll 10s linear infinite; */
+      }
+
+      .logo-track img {
+        height: 80px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      /* optional CSS animation for auto scroll */
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(100%); /* adjust based on content width */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo-container">
+      <div class="logo-track">
+        <img
+          src="https://res.cloudinary.com/vistaprint/images/f_auto,q_auto/v1706191816/ideas-and-advice-prod/blogadmin/Screenshot-2024-01-25-at-15.09.28/Screenshot-2024-01-25-at-15.09.28.png?_i=AA"
+          alt="Logo 1"
+        />
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxAKjgeOM1ei6EkyP31gz0NfkRNNAi5eT1Aw&s"
+          alt="Logo 2"
+        />
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFu6F7Mn9IQnMD98bnRB5XO3-SEjmDKhwXYw&s"
+          alt="Logo 3"
+        />
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjnTQHVFWbI6H4ehIEBGNMyJOgob3Yh0_LFg&s"
+          alt="Logo 4"
+        />
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTepuT1t7zd4sbBDu8ha0p_Xccjrvfnei5MSw&s"
+          alt="Logo 5"
+        />
+         <img
+          src="https://res.cloudinary.com/vistaprint/images/f_auto,q_auto/v1706191816/ideas-and-advice-prod/blogadmin/Screenshot-2024-01-25-at-15.09.28/Screenshot-2024-01-25-at-15.09.28.png?_i=AA"
+          alt="Logo 1"
+        />
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxAKjgeOM1ei6EkyP31gz0NfkRNNAi5eT1Aw&s"
+          alt="Logo 2"
+        />
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFu6F7Mn9IQnMD98bnRB5XO3-SEjmDKhwXYw&s"
+          alt="Logo 3"
+        />
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjnTQHVFWbI6H4ehIEBGNMyJOgob3Yh0_LFg&s"
+          alt="Logo 4"
+        />
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTepuT1t7zd4sbBDu8ha0p_Xccjrvfnei5MSw&s"
+          alt="Logo 5"
+        />
+         <img
+          src="https://res.cloudinary.com/vistaprint/images/f_auto,q_auto/v1706191816/ideas-and-advice-prod/blogadmin/Screenshot-2024-01-25-at-15.09.28/Screenshot-2024-01-25-at-15.09.28.png?_i=AA"
+          alt="Logo 1"
+        />
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxAKjgeOM1ei6EkyP31gz0NfkRNNAi5eT1Aw&s"
+          alt="Logo 2"
+        />
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFu6F7Mn9IQnMD98bnRB5XO3-SEjmDKhwXYw&s"
+          alt="Logo 3"
+        />
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjnTQHVFWbI6H4ehIEBGNMyJOgob3Yh0_LFg&s"
+          alt="Logo 4"
+        />
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTepuT1t7zd4sbBDu8ha0p_Xccjrvfnei5MSw&s"
+          alt="Logo 5"
+        />
+        <!-- duplicate logos if you want seamless infinite scroll -->
+      </div>
+    </div>
+
+    <script>
+      const track = document.querySelector(".logo-track");
+      let scrollX = 0;
+      function scrollLogos() {
+        scrollX += 1; // speed in pixels
+        if (scrollX >= track.scrollWidth / 1) scrollX = 0; // reset for infinite scroll
+        track.style.transform = `translateX(-${scrollX}px)`;
+      }
+      setInterval(scrollLogos, 20); // adjust speed
+    </script>
+  </body>
+</html>
