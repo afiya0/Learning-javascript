@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toaster</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body style="background-color: rgb(54, 54, 54)">
+    <div class="parent flex flex p-10 flex-col items-start gap-5"></div>
+    <script>
+      function createToaster(config) {
+        return function (notification) {
+          const parent = document.querySelector(".parent");
+          const div = document.createElement("div");
+
+          div.className = `
+    px-6 py-3 rounded shadow-lg
+      ${config.positionX === "right" ? "right-10" : "left-10"}
+      ${config.positionY === "top" ? "top-10" : "bottom-10"}
+      ${config.theme === "dark" ? "bg-gray-800 text-white" : "bg-green-200 text-black"} transition-opacity duration-300
+    `;
+
+          div.textContent = notification;
+          parent.appendChild(div);
+
+          setTimeout(() => {
+            div.remove();
+          }, config.duration * 1000);
+        };
+      }
+
+      const toaster = createToaster({
+        positionX: "left",
+        positionY: "top",
+        theme: "dark",
+        duration: 3,
+      });
+
+      setTimeout(() => toaster("This is notification"), 1000);
+      setTimeout(() => toaster("This is error notification"), 4000);
+    </script>
+  </body>
+</html>

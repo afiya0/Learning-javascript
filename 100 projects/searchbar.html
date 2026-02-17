@@ -68,9 +68,39 @@
         <li>Mango</li>
         <li>Orange</li>
         <li>Pear</li>
+        <li>Pineapple</li>
+        <li>Lemon</li>
+        <li>Almond</li>
+<li>Apple</li>
+<li>Banana</li>
+<li>Cherry</li>
+<li>Date</li>
+<li>Grape</li>
+<li>Mango</li>
+<li>Orange</li>
+<li>Pear</li>
+<li>Pineapple</li>
+<li>Lemon</li>
+
       </ul>
     </div>
 
-    <script></script>
+    <script>
+      let li = document.querySelectorAll(".results li");
+      let search = document.querySelector("#search");
+      search.addEventListener("input", () => {
+        const value = search.value.toLowerCase();
+
+        li.forEach((li) => {
+          const text = li.textContent.toLocaleLowerCase();
+
+          if (text.includes(value)) {
+            li.style.display = "block";
+          } else {
+            li.style.display = "none";
+          }
+        });
+      });
+    </script>
   </body>
 </html>
